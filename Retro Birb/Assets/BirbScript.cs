@@ -7,6 +7,8 @@ public class BirbScript : MonoBehaviour
     public float jumpForce;
     public LogicScript logic;
     public bool ballActive = true;
+    public float maxHeight = 1.15f;
+    public float minHeight = -1.15f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -26,6 +28,12 @@ public class BirbScript : MonoBehaviour
     {
         logic.gameOver();
         ballActive = false;
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+            logic.gameOver();
+            ballActive = false;
     }
 
 }
